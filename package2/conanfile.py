@@ -7,16 +7,16 @@ class Package2Conan(ConanFile):
     name = "package2"
     version = "1.0.0"
     requires = "package1/1.0.0@timzoet/stable"
-    generators = "cmake_find_package"
+    generators = "CMakeDeps"
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
 
-    exports_sources = "CMakeLists.txt", "include/*", "src/*", "PackageConfigTemplate.cmake.in"
+    exports_sources = "CMakeLists.txt", "include/*", "src/*"
 
     def layout(self):
         cmake_layout(self)
-    
+
     def generate(self):
         tc = CMakeToolchain(self)
         tc.generate()

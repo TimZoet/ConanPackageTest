@@ -37,31 +37,3 @@ install(
     FILES ${HEADERS}
     DESTINATION include/${NAME}
 )
-
-install(
-    EXPORT ${EXPORT_NAME}
-    FILE "${EXPORT_NAME}.cmake"
-    NAMESPACE "${NAME}::"
-    DESTINATION lib/cmake/${NAME}
-)
-
-include(CMakePackageConfigHelpers)
-
-configure_package_config_file(
-    ${CMAKE_SOURCE_DIR}/PackageConfigTemplate.cmake.in
-    "${CMAKE_CURRENT_BINARY_DIR}/${NAME}Config.cmake"
-    INSTALL_DESTINATION lib/cmake/${NAME}
-)
-
-write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/${NAME}ConfigVersion.cmake"
-    VERSION ${VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-install(
-    FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/${NAME}Config.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/${NAME}ConfigVersion.cmake"
-    DESTINATION lib/cmake/${NAME}
-)
