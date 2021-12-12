@@ -6,7 +6,6 @@ from conan.tools.layout import cmake_layout
 class Package1Conan(ConanFile):
     name = "package1"
     version = "1.0.0"
-    generators = "cmake_find_package"
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
@@ -15,7 +14,7 @@ class Package1Conan(ConanFile):
 
     def layout(self):
         cmake_layout(self)
-    
+
     def generate(self):
         tc = CMakeToolchain(self)
         tc.generate()
