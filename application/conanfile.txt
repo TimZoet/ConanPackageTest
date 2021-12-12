@@ -1,0 +1,5 @@
+[requires]
+package2/1.0.0@timzoet/stable
+
+[generators]
+cmake_find_package
